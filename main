@@ -1,0 +1,27 @@
+/// fish.h
+#pragma once
+#include "animal.h"
+using namespace std;
+class fish : public animal {
+public:
+fish() : nPins(4) { };
+int nPins;
+void swim() { cout << " I swim! \n"; }
+};
+
+///main.cpp
+#include <iostream>
+#include "fish.h"
+using namespace std;
+int main() {
+animal* a[3];
+for (int i = 0; i < 2; i++) a[i] = new fish;
+fish c;
+a[2] = &c;
+c.swim();
+//a[2]->swim();
+((fish*)a[2])->swim();
+return 123;
+}
+
+/////메인 수정하고 새로운 헤더파일 추가해서 fish class만들어주기
